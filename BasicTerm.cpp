@@ -42,3 +42,7 @@ void BasicTerm::show_cursor(boolean show) {
         serial->print(F("\x1b[?25l"));
     }
 }
+
+int16_t BasicTerm::get_key(void) {
+    return serial->read();
+}

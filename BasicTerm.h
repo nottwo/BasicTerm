@@ -23,6 +23,7 @@ class BasicTerm {
         void print(uint8_t);
         void print(char *);
         void show_cursor(boolean);
+        int16_t get_key(void);
 };
 
 #endif
