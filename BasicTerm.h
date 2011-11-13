@@ -18,6 +18,15 @@ class BasicTerm : public Stream {
 #define BT_BLINK     4
 #define BT_REVERSE   8
 
+#define BT_BLACK     0
+#define BT_RED       1
+#define BT_GREEN     2
+#define BT_YELLOW    3
+#define BT_BLUE      4
+#define BT_MAGENTA   5
+#define BT_CYAN      6
+#define BT_WHITE     7
+
     private: 
         Stream *serial;
 
@@ -28,6 +37,7 @@ class BasicTerm : public Stream {
         void position(uint8_t, uint8_t);
         void show_cursor(boolean);
         void set_attribute(uint8_t);
+        void set_color(uint8_t, uint8_t);
         int16_t get_key(void);
 
         virtual int available(void);

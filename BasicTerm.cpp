@@ -76,3 +76,11 @@ void BasicTerm::set_attribute(uint8_t attr) {
         serial->print(F("\x1b[0m"));
     }
 }
+
+void BasicTerm::set_color(uint8_t fg, uint8_t bg) {
+    serial->print(F("\x1b["));
+    serial->print(30 + fg);
+    serial->print(";");
+    serial->print(40 + bg);
+    serial->print("m");
+}
