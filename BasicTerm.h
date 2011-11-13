@@ -12,6 +12,12 @@
 
 class BasicTerm {
 
+#define BT_NORMAL    0
+#define BT_BOLD      1
+#define BT_UNDERLINE 2
+#define BT_BLINK     4
+#define BT_REVERSE   8
+
     private: 
         Stream *serial;
 
@@ -23,6 +29,7 @@ class BasicTerm {
         void print(uint8_t);
         void print(char *);
         void show_cursor(boolean);
+        void set_attribute(uint8_t);
         int16_t get_key(void);
 };
 

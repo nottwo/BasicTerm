@@ -46,3 +46,21 @@ void BasicTerm::show_cursor(boolean show) {
 int16_t BasicTerm::get_key(void) {
     return serial->read();
 }
+
+void BasicTerm::set_attribute(uint8_t attr) {
+    if(attr & BT_REVERSE) {
+        serial->print(F("\x1b[7m"));
+    }
+    if(attr & BT_UNDERLINE) {
+        serial->print(F("\x1b[4m"));
+    }
+    if(attr & BT_BOLD) {
+        serial->print(F("\x1b[1m"));
+    }
+    if(attr & BT_BLINK) {
+        serial->print(F("\x1b[5m"));
+    }
+    if(attr == BT_NORMAL) {
+        serial->print(F("\x1b[0m"));
+    }
+}
