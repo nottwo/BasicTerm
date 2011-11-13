@@ -54,11 +54,11 @@ void loop(void) {
     now  = millis();
 
     term.position(1, 1);
-    term.print(F("Arduino Status Monitor   "));
+    term.print(F("Arduino Status Monitor\t"));
 
     term.print(F("Current millis: "));
     term.print(now);
-    term.print(F("  millis since last loop: "));
+    term.print(F("\tmillis since last loop: "));
     term.print(now - last);
 
     term.position(2, 1);
