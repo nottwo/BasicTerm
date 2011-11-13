@@ -54,39 +54,52 @@ void loop(void) {
     now  = millis();
 
     term.position(1, 1);
+    term.set_attribute(BT_NORMAL);
+    term.set_attribute(BT_BOLD);
     term.print(F("Arduino Status Monitor\t"));
 
+    term.set_attribute(BT_NORMAL);
     term.print(F("Current millis: "));
     term.print(now);
     term.print(F("\tmillis since last loop: "));
+    term.set_attribute(BT_UNDERLINE);
     term.print(now - last);
+    term.set_attribute(BT_NORMAL);
 
     term.position(2, 1);
     term.print(F("LED "));
+    term.set_color(BT_GREEN, BT_BLACK);
     if(digitalRead(LED) == HIGH) {
+        term.set_attribute(BT_BOLD | BT_UNDERLINE);
         term.print(F("ON "));
     } else {
         term.print(F("OFF"));
     }
+    term.set_attribute(BT_NORMAL);
 
     term.position(DIGITAL_ROW, 1);
     term.print(F("Digital Readings"));
 
     for(i = 0; i <= 13; i++) {
         term.position(DIGITAL_ROW + 1, (i)*6 + 1);
+        term.set_attribute(BT_NORMAL);
         term.print("DIN");
         term.print(i);
+        term.set_color(BT_RED, BT_BLACK);
         term.position(DIGITAL_ROW + 2, (i)*6 + 1);
         term.print(digitalRead(i));
     }
 
+    term.set_attribute(BT_NORMAL);
     term.position(ANALOG_ROW, 1);
     term.print(F("Analog Readings"));
 
     for(i = A0; i <= A5; i++) {
         term.position(ANALOG_ROW + 1, (i-A0)*6 + 1);
+        term.set_attribute(BT_NORMAL);
         term.print(F("AIN"));
         term.print(i - A0);
+        term.set_color(BT_MAGENTA, BT_BLACK);
         term.position(ANALOG_ROW + 2, (i-A0)*6 + 1);
         term.print(analogRead(i));
     }
