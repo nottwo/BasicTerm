@@ -11,6 +11,26 @@ BasicTerm::BasicTerm(Stream *ser) {
     serial = ser;
 }
 
+int BasicTerm::available(void) {
+    return serial->available();
+}
+
+int BasicTerm::peek(void) {
+    return serial->peek();
+}
+
+int BasicTerm::read(void) {
+    return serial->read();
+}
+
+void BasicTerm::flush(void) {
+    serial->flush();
+}
+
+size_t BasicTerm::write(uint8_t c) {
+    return serial->write(c);
+}
+
 void BasicTerm::init(void) {
    serial->print(F("\x1b\x63")); 
 }
@@ -25,14 +45,6 @@ void BasicTerm::position(uint8_t row, uint8_t col) {
     serial->print(F(";"));
     serial->print((uint8_t)col);
     serial->print(F("H"));
-}
-
-void BasicTerm::print(uint8_t c) {
-    serial->print(c);
-}
-
-void BasicTerm::print(char *s) {
-    serial->print(s);
 }
 
 void BasicTerm::show_cursor(boolean show) {

@@ -10,7 +10,7 @@
 
 #include <Arduino.h>
 
-class BasicTerm {
+class BasicTerm : public Stream {
 
 #define BT_NORMAL    0
 #define BT_BOLD      1
@@ -26,11 +26,17 @@ class BasicTerm {
         void init(void);
         void cls(void);
         void position(uint8_t, uint8_t);
-        void print(uint8_t);
-        void print(char *);
         void show_cursor(boolean);
         void set_attribute(uint8_t);
         int16_t get_key(void);
+
+        virtual int available(void);
+        virtual int peek(void);
+        virtual int read(void);
+        virtual void flush(void);
+        virtual size_t write(uint8_t);
+
+        using Print::write;
 };
 
 #endif
