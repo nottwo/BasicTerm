@@ -23,9 +23,13 @@ void loop(void) {
     uint8_t col = random(1, 80);
 
     term.position(row, col);
-    term.print("*");
 
+    term.set_attribute(random(0, BT_BOLD | BT_UNDERLINE | BT_BLINK | BT_REVERSE));
+    term.set_color(random(BT_BLACK, BT_WHITE), random(BT_BLACK, BT_WHITE));
+
+    term.print("*");
     if(millis() % 255 == 0) {
+        term.set_attribute(BT_NORMAL);
         term.cls();
     }
 }
