@@ -54,23 +54,23 @@ void loop(void) {
     now  = millis();
 
     term.position(1, 1);
-    term.print("Arduino Status Monitor   ");
+    term.print(F("Arduino Status Monitor   "));
 
-    term.print("Current millis: ");
+    term.print(F("Current millis: "));
     term.print(now);
-    term.print("  millis since last loop: ");
+    term.print(F("  millis since last loop: "));
     term.print(now - last);
 
     term.position(2, 1);
-    term.print("LED ");
+    term.print(F("LED "));
     if(digitalRead(LED) == HIGH) {
-        term.print( "ON" );
+        term.print(F("ON "));
     } else {
-        term.print( "OFF" );
+        term.print(F("OFF"));
     }
 
     term.position(DIGITAL_ROW, 1);
-    term.print("Digital Readings");
+    term.print(F("Digital Readings"));
 
     for(i = 0; i <= 13; i++) {
         term.position(DIGITAL_ROW + 1, (i)*6 + 1);
@@ -81,11 +81,11 @@ void loop(void) {
     }
 
     term.position(ANALOG_ROW, 1);
-    term.print("Analog Readings");
+    term.print(F("Analog Readings"));
 
     for(i = A0; i <= A5; i++) {
         term.position(ANALOG_ROW + 1, (i-A0)*6 + 1);
-        term.print("AIN");
+        term.print(F("AIN"));
         term.print(i - A0);
         term.position(ANALOG_ROW + 2, (i-A0)*6 + 1);
         term.print(analogRead(i));
