@@ -44,7 +44,7 @@ void setup(void) {
 }
 
 #define DIGITAL_ROW 4
-#define ANALOG_ROW  9
+#define ANALOG_ROW  8
 
 void loop(void) {
     uint8_t i = 0;
