@@ -15,6 +15,8 @@ Features
 * arbitrary positioning of the cursor
 * outputting characters and strings
 * showing and hiding the cursor
+* setting NORMAL, BOLD, UNDERLINE, BLINK and REVERSE attributes
+* setting foreground and background color from 8 color palette
 
 Dependencies
 ------------
@@ -48,5 +50,4 @@ Trannie Carter <borys@nottwo.org>
 Future development
 ------------------
 
-* attributes
 * control sequence (function, arrow keys) reading
