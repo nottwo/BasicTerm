@@ -15,8 +15,8 @@ BasicTerm term(&Serial);
 
 #define LED 13
 
-int16_t now;
-int16_t last;
+uint32_t now;
+uint32_t last;
 
 void setup(void) {
     Serial.begin(9600);
