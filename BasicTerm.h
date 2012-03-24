@@ -27,6 +27,14 @@ class BasicTerm : public Stream {
 #define BT_CYAN      6
 #define BT_WHITE     7
 
+#define BT_KEY_UNKNOWN      0401
+#define BT_KEY_DOWN         0402
+#define BT_KEY_UP           0403
+#define BT_KEY_LEFT         0404
+#define BT_KEY_RIGHT        0405
+#define BT_KEY_F0           0410
+#define BT_KEY_F(n)         (BT_KEY_F0 + (n))
+
     private: 
         Stream *serial;
 

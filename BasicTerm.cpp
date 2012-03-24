@@ -56,7 +56,58 @@ void BasicTerm::show_cursor(boolean show) {
 }
 
 int16_t BasicTerm::get_key(void) {
-    return serial->read();
+    int16_t key;
+    uint16_t when;
+
+    key = serial->read();
+
+    if(key == 0x1b) { /* escape sequence */
+        when = millis();
+        while(serial->available() < 2) {
+            if(((uint16_t) millis() - when) > 1000) {
+                return key;
+            }
+        }
+
+        key = serial->read();
+
+        switch(key) {
+            case '[':
+                key = serial->read();
+                switch(key) {
+                    case 'A':
+                        return BT_KEY_UP;
+                    case 'B':
+                        return BT_KEY_DOWN;
+                    case 'C':
+                        return BT_KEY_RIGHT;
+                    case 'D':
+                        return BT_KEY_LEFT;
+                    default:
+                        return key;
+                }
+                break;
+            case 'O':
+                key = serial->read();
+                switch(key) {
+                    case 'P':
+                        return BT_KEY_F(1);
+                    case 'Q':
+                        return BT_KEY_F(2);
+                    case 'R':
+                        return BT_KEY_F(3);
+                    case 'S':
+                        return BT_KEY_F(4);
+                    default:
+                        return key;
+                }
+                break;
+            default:
+                return key;
+        } 
+    }
+
+    return key;
 }
 
 void BasicTerm::set_attribute(uint8_t attr) {
