@@ -43,8 +43,8 @@ void setup(void) {
 
 }
 
-#define DIGITAL_ROW 4
-#define ANALOG_ROW  8
+#define DIGITAL_ROW 3
+#define ANALOG_ROW  7
 
 void loop(void) {
     uint8_t i = 0;
@@ -53,7 +53,7 @@ void loop(void) {
     last = now;
     now  = millis();
 
-    term.position(1, 1);
+    term.position(0, 0);
     term.set_attribute(BT_NORMAL);
     term.set_attribute(BT_BOLD);
     term.print(F("Arduino Status Monitor\t"));
@@ -66,7 +66,7 @@ void loop(void) {
     term.print(now - last);
     term.set_attribute(BT_NORMAL);
 
-    term.position(2, 1);
+    term.position(1, 0);
     term.print(F("LED "));
     term.set_color(BT_GREEN, BT_BLACK);
     if(digitalRead(LED) == HIGH) {
@@ -77,30 +77,30 @@ void loop(void) {
     }
     term.set_attribute(BT_NORMAL);
 
-    term.position(DIGITAL_ROW, 1);
+    term.position(DIGITAL_ROW, 0);
     term.print(F("Digital Readings"));
 
     for(i = 0; i <= 13; i++) {
-        term.position(DIGITAL_ROW + 1, (i)*6 + 1);
+        term.position(DIGITAL_ROW + 1, (i)*6);
         term.set_attribute(BT_NORMAL);
         term.print("DIN");
         term.print(i);
         term.set_color(BT_RED, BT_BLACK);
-        term.position(DIGITAL_ROW + 2, (i)*6 + 1);
+        term.position(DIGITAL_ROW + 2, (i)*6);
         term.print(digitalRead(i));
     }
 
     term.set_attribute(BT_NORMAL);
-    term.position(ANALOG_ROW, 1);
+    term.position(ANALOG_ROW, 0);
     term.print(F("Analog Readings"));
 
     for(i = A0; i <= A5; i++) {
-        term.position(ANALOG_ROW + 1, (i-A0)*6 + 1);
+        term.position(ANALOG_ROW + 1, (i-A0)*6);
         term.set_attribute(BT_NORMAL);
         term.print(F("AIN"));
         term.print(i - A0);
         term.set_color(BT_MAGENTA, BT_BLACK);
-        term.position(ANALOG_ROW + 2, (i-A0)*6 + 1);
+        term.position(ANALOG_ROW + 2, (i-A0)*6);
         term.print(analogRead(i));
     }
 

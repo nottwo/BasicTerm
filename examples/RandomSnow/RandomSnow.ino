@@ -19,8 +19,8 @@ void setup(void) {
 }
 
 void loop(void) {
-    uint8_t row = random(1, 24);
-    uint8_t col = random(1, 80);
+    uint8_t row = random(0, 23);
+    uint8_t col = random(0, 79);
 
     term.position(row, col);
 
