@@ -41,9 +41,9 @@ void BasicTerm::cls(void) {
 
 void BasicTerm::position(uint8_t row, uint8_t col) {
     serial->print(F("\x1b["));
-    serial->print((uint8_t)row);
+    serial->print((uint8_t)row + 1);
     serial->print(F(";"));
-    serial->print((uint8_t)col);
+    serial->print((uint8_t)col + 1);
     serial->print(F("H"));
 }
 
