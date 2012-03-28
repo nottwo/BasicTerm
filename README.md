@@ -17,6 +17,7 @@ Features
 * showing and hiding the cursor
 * setting NORMAL, BOLD, UNDERLINE, BLINK and REVERSE attributes
 * setting foreground and background color from 8 color palette
+* symbolic key reading (F1 - F4, arrow keys)
 
 Dependencies
 ------------
@@ -50,4 +51,6 @@ Trannie Carter <borys@nottwo.org>
 Future development
 ------------------
 
-* control sequence (function, arrow keys) reading
+* expanded function key reading
+* blocking and half-blocking (timeout) reads
+* graphical character (line) drawing
