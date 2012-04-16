@@ -6,7 +6,7 @@
  *
  * It responds to the following input commands:
  * ' '  (space):  Toggle LED
- * '' (Ctrl-L): Redraw screen
+ * '\f' (Ctrl-L): Redraw screen
  */
 
 #include <BasicTerm.h>
@@ -110,7 +110,7 @@ void loop(void) {
             /* Spacebar: toggle LED */
             digitalWrite(LED, !digitalRead(LED));
             break;
-        case '':
+        case '\f':
             /* Ctrl-L: redraw screen */
             term.cls();
             break;
