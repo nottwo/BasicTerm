@@ -3,7 +3,7 @@
  *
  * A simple roguelike that lets an @ walk around a fixed map. Feel free
  * to implement random map generation, item, combat, magic & time
- * systems and a winning condition in the 2k/32k you have available :)
+ * systems and a winning condition in the 2k/32k/1k you have available :)
  * 
  * My Arduino appears as /dev/ttyACM0 under Linux and I connect to it
  * with:
