@@ -144,3 +144,7 @@ void BasicTerm::set_color(uint8_t fg, uint8_t bg) {
     serial->print(40 + bg);
     serial->print("m");
 }
+
+void BasicTerm::beep(void) {
+    serial->print(F("\x07"));
+}

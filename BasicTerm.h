@@ -75,6 +75,7 @@ class BasicTerm : public Stream {
         void show_cursor(boolean);
         void set_attribute(uint8_t);
         void set_color(uint8_t, uint8_t);
+	void beep(void);
         int16_t get_key(void);
 
         virtual int available(void);
