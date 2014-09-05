@@ -28,6 +28,15 @@ void BasicTerm::flush(void) {
 }
 
 size_t BasicTerm::write(uint8_t c) {
+    uint8_t ret;
+
+    if(c & BT_ALTCHAR) {
+        serial->print(BT_START_ALTCHAR);
+        ret = serial->write(c & ~BT_ALTCHAR);
+        serial->print(BT_END_ALTCHAR);
+        return ret;
+    }
+
     return serial->write(c);
 }
 

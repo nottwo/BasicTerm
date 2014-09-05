@@ -35,6 +35,29 @@ class BasicTerm : public Stream {
 #define BT_KEY_F0           0410
 #define BT_KEY_F(n)         (BT_KEY_F0 + (n))
 
+#define BT_ALTCHAR          0x80
+#define BT_START_ALTCHAR    (F("\x1b(0"))
+#define BT_END_ALTCHAR      (F("\x1b(B"))
+#define BT_ACS(c)           (BT_ALTCHAR | (c))
+#define BT_ULCORNER         BT_ACS('l')
+#define BT_LLCORNER         BT_ACS('m')
+#define BT_URCORNER         BT_ACS('k')
+#define BT_LRCORNER         BT_ACS('j')
+#define BT_LTEE             BT_ACS('t')
+#define BT_RTEE             BT_ACS('u')
+#define BT_BTEE             BT_ACS('v')
+#define BT_TTEE             BT_ACS('w')
+#define BT_HLINE            BT_ACS('q')
+#define BT_VLINE            BT_ACS('x')
+#define BT_PLUS             BT_ACS('n')
+#define BT_S1               BT_ACS('o')
+#define BT_S9               BT_ACS('s')
+#define BT_DIAMOND          BT_ACS('`')
+#define BT_CKBOARD          BT_ACS('a')
+#define BT_DEGREE           BT_ACS('f')
+#define BT_PLMINUS          BT_ACS('g')
+#define BT_BULLET           BT_ACS('~')
+
     private: 
         Stream *serial;
 

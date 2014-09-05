@@ -53,4 +53,3 @@ Future development
 
 * expanded function key reading
 * blocking and half-blocking (timeout) reads
-* graphical character (line) drawing
