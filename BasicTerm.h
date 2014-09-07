@@ -51,12 +51,18 @@ class BasicTerm : public Stream {
 #define BT_VLINE            BT_ACS('x')
 #define BT_PLUS             BT_ACS('n')
 #define BT_S1               BT_ACS('o')
+#define BT_S3               BT_ACS('p')
+#define BT_S7               BT_ACS('r')
 #define BT_S9               BT_ACS('s')
 #define BT_DIAMOND          BT_ACS('`')
 #define BT_CKBOARD          BT_ACS('a')
 #define BT_DEGREE           BT_ACS('f')
 #define BT_PLMINUS          BT_ACS('g')
 #define BT_BULLET           BT_ACS('~')
+#define BT_LEQUAL           BT_ACS('y')
+#define BT_GEQUAL           BT_ACS('z')
+#define BT_NEQUAL           BT_ACS('|')
+#define BT_POUNDS           BT_ACS('}')
 
     private: 
         Stream *serial;
