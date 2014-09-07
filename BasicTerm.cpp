@@ -93,7 +93,7 @@ int16_t BasicTerm::get_key(void) {
                     case 'D':
                         return BT_KEY_LEFT;
                     default:
-                        return key;
+                        return BT_KEY_UNKNOWN;
                 }
                 break;
             case 'O':
@@ -108,11 +108,11 @@ int16_t BasicTerm::get_key(void) {
                     case 'S':
                         return BT_KEY_F(4);
                     default:
-                        return key;
+                        return BT_KEY_UNKNOWN;
                 }
                 break;
             default:
-                return key;
+                return BT_KEY_UNKNOWN;
         } 
     }
 
