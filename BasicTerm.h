@@ -52,6 +52,7 @@ class BasicTerm : public Stream {
 #define BT_PLUS             BT_ACS('n')
 #define BT_S1               BT_ACS('o')
 #define BT_S3               BT_ACS('p')
+#define BT_S5               BT_ACS('q')
 #define BT_S7               BT_ACS('r')
 #define BT_S9               BT_ACS('s')
 #define BT_DIAMOND          BT_ACS('`')
